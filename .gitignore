@@ -1,0 +1,25 @@
+# Laravel & general ignores
+/node_modules
+/vendor
+/public/storage
+/public/hot
+/storage/*.key
+/.env
+/.env.*
+/.idea
+/.vscode
+/.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+*.log
+.DS_Store
+.phpactor.json
+/.fleet
+/.nova
+/.phpunit.cache
+/.zed
+/auth.json
+/public/build
+Thumbs.db
