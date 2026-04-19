@@ -2,16 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
+// HOME
 Route::get('/', function () {
-    return view('welcome');
+    return view('katalog');
 });
 
-// HALAMAN LOGIN
+// LOGIN
 Route::get('/login', function () {
     return view('login');
 });
 
-// HALAMAN REGISTER
+// REGISTER
 Route::get('/register', function () {
     return view('register');
 });
