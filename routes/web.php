@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 // HOME
-Route::get('/', function () {
+Route::get('/katalog', function () {
     return view('katalog');
 });
 
