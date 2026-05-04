@@ -10,7 +10,7 @@ Route::get('/katalog', function () {
 // LOGIN
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
 
 // REGISTER
 Route::get('/register', function () {
