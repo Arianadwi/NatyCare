@@ -153,7 +153,6 @@ body {
         <p>Kulit Sehat - Cantik Alami</p>
     </div>
 
-    <!-- GANTI INI DENGAN FOTO KAMU NANTI -->
     <img src="https://via.placeholder.com/350">
 </div>
 
@@ -164,51 +163,9 @@ body {
     <div class="line"></div>
 </div>
 
-<!-- PRODUK 6 -->
-<div class="grid">
-
-<div class="card">
-<img src="https://via.placeholder.com/100">
-<p>Brightening Cleanser</p>
-<p>Rp 120.000</p>
-<button class="btn">+ Keranjang</button>
-</div>
-
-<div class="card">
-<img src="https://via.placeholder.com/100">
-<p>Hydra Glowing Toner</p>
-<p>Rp 95.000</p>
-<button class="btn">+ Keranjang</button>
-</div>
-
-<div class="card">
-<img src="https://via.placeholder.com/100">
-<p>Anti-Aging Serum</p>
-<p>Rp 150.000</p>
-<button class="btn">+ Keranjang</button>
-</div>
-
-<div class="card">
-<img src="https://via.placeholder.com/100">
-<p>Moisturizer Glow</p>
-<p>Rp 60.000</p>
-<button class="btn">+ Keranjang</button>
-</div>
-
-<div class="card">
-<img src="https://via.placeholder.com/100">
-<p>Serum Brightening</p>
-<p>Rp 75.000</p>
-<button class="btn">+ Keranjang</button>
-</div>
-
-<div class="card">
-<img src="https://via.placeholder.com/100">
-<p>Hydrating Essence</p>
-<p>Rp 110.000</p>
-<button class="btn">+ Keranjang</button>
-</div>
-
+<!-- PRODUK DINAMIS -->
+<div class="grid" id="produk-container">
+    <!-- otomatis dari API -->
 </div>
 
 <!-- FOOTER -->
@@ -232,6 +189,29 @@ natycare17106@gmail.com
 </div>
 
 </div>
+
+@verbatim
+<script>
+fetch('http://127.0.0.1:8000/api/produk')
+.then(response => response.json())
+.then(data => {
+    let container = document.getElementById('produk-container');
+    container.innerHTML = '';
+
+    data.forEach(item => {
+        container.innerHTML += `
+        <div class="card">
+            <img src="${item.gambar}">
+            <p>${item.nama_produk}</p>
+            <p>Rp ${item.harga}</p>
+            <button class="btn">+ Keranjang</button>
+        </div>
+        `;
+    });
+})
+.catch(error => console.log(error));
+</script>
+@endverbatim
 
 </body>
 </html>

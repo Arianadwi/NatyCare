@@ -10,8 +10,14 @@ class ProdukController extends Controller
     // GET semua produk
     public function index()
     {
-        return response()->json(Produk::all());
-    }
+        $produk = Produk::all();
+
+        foreach ($produk as $item) {
+            $item->gambar = url('storage/uploads/' . $item->gambar);
+        }
+
+    return response()->json($produk);
+}
 
     // POST tambah produk
     public function store(Request $request)
