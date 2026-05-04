@@ -16,3 +16,8 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('register');
 });
+
+// KERANJANG
+Route::get('/keranjang', function () {
+    return view('keranjang');
+});
