@@ -118,6 +118,10 @@ body {
     border-radius: 8px;
     margin-top: 10px;
     font-size: 15px;
+
+    display: block;
+    text-align: center;
+    text-decoration: none;
 }
 </style>
 
@@ -198,7 +202,9 @@ Rp 60.000
 
 <p class="total">Total: Rp 350.000</p>
 
-<button class="checkout">Checkout Sekarang</button>
+<a href="/checkout" class="checkout">
+    Checkout Sekarang
+</a>
 
 <p class="note">*Promo berlaku hari ini</p>
 

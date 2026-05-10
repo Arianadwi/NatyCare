@@ -21,3 +21,8 @@ Route::get('/register', function () {
 Route::get('/keranjang', function () {
     return view('keranjang');
 });
+
+// CHECKOUT
+Route::get('/checkout', function () {
+    return view('checkout');
+});
