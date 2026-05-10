@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\KeranjangController;
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
@@ -10,6 +11,11 @@ Route::post('/register', [AuthController::class, 'register']);
 /* PRODUK BISA DIAKSES TANPA LOGIN */
 Route::get('/produk', [ProdukController::class, 'index']);
 Route::get('/produk/{id}', [ProdukController::class, 'show']);
+
+/* KERANJANG */
+Route::get('/keranjang', [KeranjangController::class, 'index']);
+Route::post('/keranjang', [KeranjangController::class, 'store']);
+Route::delete('/keranjang/{id}', [KeranjangController::class, 'destroy']);
 
 /* YANG PERLU LOGIN */
 Route::middleware('auth:sanctum')->group(function () {
