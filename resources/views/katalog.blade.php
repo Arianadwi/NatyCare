@@ -226,6 +226,7 @@ fetch('http://127.0.0.1:8000/api/produk')
         <div class="card">
             <img src="${item.gambar}">
             <p>${item.nama_produk}</p>
+            <p>${item.deskripsi}</p>
             <p>Rp ${item.harga}</p>
             <button class="btn">+ Keranjang</button>
         </div>
