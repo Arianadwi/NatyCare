@@ -8,7 +8,7 @@ Ariana Dwi Herlinawati (2313020096)
 
 Aplikasi NatyCare adalah sistem penjualan skincare berbasis web yang memungkinkan pelanggan melihat katalog produk, melakukan pemesanan, dan pembayaran menggunakan QRIS. Admin dapat mengelola produk, pesanan, stok, serta melihat laporan penjualan melalui sistem.
 
-## ✨ Fitur Utama
+## Fitur Utama
 - Katalog produk
 - Keranjang belanja
 - Checkout
@@ -17,7 +17,7 @@ Aplikasi NatyCare adalah sistem penjualan skincare berbasis web yang memungkinka
 - Manajemen produk
 - Laporan penjualan
 
-## 🚀 Roadmap NatyCare
+## Roadmap NatyCare
 ### Katalog Produk
 - [x] Halaman katalog produk
 - [ ] Menampilkan data produk
@@ -41,5 +41,5 @@ Aplikasi NatyCare adalah sistem penjualan skincare berbasis web yang memungkinka
 - [ ] Laporan penjualan
 - [ ] Grafik penjualan
 
-## 📌 Status Project
+## Status Project
 Dalam tahap pengembangan
