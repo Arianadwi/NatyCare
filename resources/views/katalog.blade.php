@@ -11,6 +11,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial;
     background: #ffeef5;
@@ -44,21 +48,39 @@ body {
     font-size: 16px;
 }
 
-/* HERO BESAR */
+/* HERO */
 .hero {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 60px 60px;
-    background: linear-gradient(to right, #ffd6e5, #fff);
+    padding: 80px 60px;
+
+    /* 🔥 FIX DI SINI */
+    background: url('/storage/images/bgkatalog.jpg') no-repeat center;
+
+    background-size: cover;
+    position: relative;
+    color: white;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 182, 193, 0.4);
 }
 
 .hero-text {
     width: 50%;
+    position: relative;
+    z-index: 2;
 }
 
 .hero h1 {
-    color: #f06292;
+    color: white;
     font-size: 32px;
     margin-bottom: 15px;
 }
@@ -67,9 +89,8 @@ body {
     font-size: 18px;
 }
 
-/* FOTO BESAR */
-.hero img {
-    width: 350px;
+.hero h1, .hero p {
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
 }
 
 /* TITLE */
@@ -104,6 +125,8 @@ body {
 
 .card img {
     width: 100px;
+    height: 100px;
+    object-fit: cover; /* 🔥 biar rapi */
     margin-bottom: 10px;
 }
 
@@ -142,7 +165,7 @@ body {
     <div class="nav-menu">
         <a href="/">Beranda</a>
         <a href="#">Keranjang 🛒</a>
-        <a href="#">Kontak 📞</a>
+        <a href="#kontak">Kontak 📞</a>
     </div>
 </div>
 
@@ -152,8 +175,6 @@ body {
         <h1>Selamat Datang di NatyCare Skincare</h1>
         <p>Kulit Sehat - Cantik Alami</p>
     </div>
-
-    <img src="https://via.placeholder.com/350">
 </div>
 
 <!-- TITLE -->
@@ -164,12 +185,10 @@ body {
 </div>
 
 <!-- PRODUK DINAMIS -->
-<div class="grid" id="produk-container">
-    <!-- otomatis dari API -->
-</div>
+<div class="grid" id="produk-container"></div>
 
 <!-- FOOTER -->
-<div class="footer">
+<div class="footer" id="kontak">
 
 <div class="col">
 <b>Kontak Kami</b><br>
@@ -195,19 +214,25 @@ natycare17106@gmail.com
 fetch('http://127.0.0.1:8000/api/produk')
 .then(response => response.json())
 .then(data => {
+
+    console.log(data);
+
     let container = document.getElementById('produk-container');
     container.innerHTML = '';
 
     data.forEach(item => {
+
         container.innerHTML += `
         <div class="card">
             <img src="${item.gambar}">
             <p>${item.nama_produk}</p>
+            <p>${item.deskripsi}</p>
             <p>Rp ${item.harga}</p>
             <button class="btn">+ Keranjang</button>
         </div>
         `;
     });
+
 })
 .catch(error => console.log(error));
 </script>
