@@ -15,6 +15,7 @@ Route::get('/produk/{id}', [ProdukController::class, 'show']);
 /* KERANJANG */
 Route::get('/keranjang', [KeranjangController::class, 'index']);
 Route::post('/keranjang', [KeranjangController::class, 'store']);
+Route::put('/keranjang/{id}', [KeranjangController::class, 'update']);
 Route::delete('/keranjang/{id}', [KeranjangController::class, 'destroy']);
 
 /* YANG PERLU LOGIN */
