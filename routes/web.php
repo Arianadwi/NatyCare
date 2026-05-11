@@ -26,3 +26,4 @@ Route::get('/keranjang', function () {
 Route::get('/checkout', function () {
     return view('checkout');
 });
+
