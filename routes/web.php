@@ -16,3 +16,13 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('register');
 });
+
+// KERANJANG
+Route::get('/keranjang', function () {
+    return view('keranjang');
+});
+
+// CHECKOUT
+Route::get('/checkout', function () {
+    return view('checkout');
+});
