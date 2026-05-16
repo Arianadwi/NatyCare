@@ -164,8 +164,8 @@ body {
 
     <div class="nav-menu">
         <a href="/">Beranda</a>
-        <a href="/keranjang">Keranjang 🛒</a>
-        <a href="#kontak">Kontak 📞</a>
+        <a href="/keranjang">Keranjang </a>
+        <a href="#kontak">Kontak </a>
     </div>
 </div>
 

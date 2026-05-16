@@ -137,8 +137,8 @@ body {
 
     <div class="nav-menu">
         <a href="/katalog">Beranda</a>
-        <a href="/keranjang">Keranjang 🛒</a>
-        <a href="#">Kontak 📞</a>
+        <a href="/keranjang">Keranjang </a>
+        <a href="/katalog/#kontak">Kontak </a>
     </div>
 </div>
 

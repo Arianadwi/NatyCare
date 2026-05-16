@@ -312,8 +312,8 @@ textarea{
 
 <div class="nav-menu">
 <a href="/">Beranda</a>
-<a href="/keranjang">Keranjang 🛒</a>
-<a href="#">Kontak 📞</a>
+<a href="/keranjang">Keranjang</a>
+<a href="/katalog/#kontak">Kontak</a>
 </div>
 
 </div>

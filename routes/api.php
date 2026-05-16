@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\KeranjangController;
+use App\Http\Controllers\CheckoutController;
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
@@ -17,6 +18,10 @@ Route::get('/keranjang', [KeranjangController::class, 'index']);
 Route::post('/keranjang', [KeranjangController::class, 'store']);
 Route::put('/keranjang/{id}', [KeranjangController::class, 'update']);
 Route::delete('/keranjang/{id}', [KeranjangController::class, 'destroy']);
+
+/* CHECKOUT */
+Route::post('/checkout', [CheckoutController::class, 'checkout']);
+Route::get('/checkout/{id}', [CheckoutController::class, 'show']);
 
 /* YANG PERLU LOGIN */
 Route::middleware('auth:sanctum')->group(function () {
