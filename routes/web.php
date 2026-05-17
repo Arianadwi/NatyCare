@@ -27,3 +27,7 @@ Route::get('/checkout', function () {
     return view('checkout');
 });
 
+// PROFILE
+Route::get('/profile', function () {
+    return view('profile');
+});
