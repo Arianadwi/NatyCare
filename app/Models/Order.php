@@ -12,4 +12,10 @@ class Order extends Model
         'total',
         'status'
     ];
+
+    public function items()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+
 }
