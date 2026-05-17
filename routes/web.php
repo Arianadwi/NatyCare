@@ -3,14 +3,14 @@
 use Illuminate\Support\Facades\Route;
 
 // HOME
-Route::get('/', function () {
+Route::get('/katalog', function () {
     return view('katalog');
 });
 
 // LOGIN
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
 
 // REGISTER
 Route::get('/register', function () {

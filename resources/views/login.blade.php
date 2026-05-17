@@ -90,7 +90,7 @@
 <div class="container">
     <h2>Login Admin</h2>
 
-    <form method="POST" action="/api/login">
+    <form onsubmit="event.preventDefault(); loginUser();">
         @csrf
 
         <div class="input-group">
@@ -112,6 +112,43 @@
         Belum punya akun? <a href="/register">Daftar</a>
     </div>
 </div>
+    <script>
+function loginUser() {
+    const email = document.querySelector('input[name="email"]').value;
+    const password = document.querySelector('input[name="password"]').value;
 
+    fetch("http://127.0.0.1:8000/api/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+            email: email,
+            password: password
+        })
+    })
+    .then(async res => {
+        const data = await res.json();
+        console.log(data);
+
+        if (res.ok) {
+            // 🔥 SIMPAN TOKEN
+            localStorage.setItem("token", data.token);
+
+            alert("Login berhasil");
+
+            // 🔥 PINDAH KE KATALOG
+            window.location.href = "/katalog";
+        } else {
+            alert(data.message);
+        }
+    })
+    .catch(err => {
+        console.log(err);
+        alert("Terjadi error");
+    });
+}
+</script>
 </body>
 </html>
