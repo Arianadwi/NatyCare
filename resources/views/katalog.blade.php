@@ -164,8 +164,8 @@ body {
 
     <div class="nav-menu">
         <a href="/">Beranda</a>
-        <a href="#">Keranjang 🛒</a>
-        <a href="#kontak">Kontak 📞</a>
+        <a href="/keranjang">Keranjang </a>
+        <a href="#kontak">Kontak </a>
     </div>
 </div>
 
@@ -228,13 +228,45 @@ fetch('http://127.0.0.1:8000/api/produk')
             <p>${item.nama_produk}</p>
             <p>${item.deskripsi}</p>
             <p>Rp ${item.harga}</p>
-            <button class="btn">+ Keranjang</button>
+            <button class="btn" onclick="tambahKeranjang(${item.id})">
+                + Keranjang
+            </button>
         </div>
         `;
     });
 
 })
 .catch(error => console.log(error));
+
+function tambahKeranjang(id){
+
+    fetch('http://127.0.0.1:8000/api/keranjang', {
+
+        method: 'POST',
+
+        headers: {
+            'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+            produk_id: id,
+            jumlah: 1
+        })
+
+    })
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        alert('Produk berhasil masuk keranjang 💖');
+
+    })
+
+    .catch(error => console.log(error));
+
+}
+
 </script>
 @endverbatim
 

@@ -126,6 +126,7 @@ body {
 </style>
 
 </head>
+
 <body>
 
 <div class="container">
@@ -135,9 +136,9 @@ body {
     <div class="logo">🌸 NatyCare</div>
 
     <div class="nav-menu">
-        <a href="/">Beranda</a>
-        <a href="/keranjang">Keranjang 🛒</a>
-        <a href="#">Kontak 📞</a>
+        <a href="/katalog">Beranda</a>
+        <a href="/keranjang">Keranjang </a>
+        <a href="/katalog/#kontak">Kontak </a>
     </div>
 </div>
 
@@ -155,38 +156,7 @@ body {
 
 <h3>Produk di Keranjang</h3>
 
-<div class="item">
-<img src="https://via.placeholder.com/80">
-<div>
-<b>Hydra Glowing Toner</b><br>
-Rp 95.000
-<div class="qty">
-<button>-</button> 1 <button>+</button>
-</div>
-</div>
-</div>
-
-<div class="item">
-<img src="https://via.placeholder.com/80">
-<div>
-<b>Anti-Aging Serum</b><br>
-Rp 150.000
-<div class="qty">
-<button>-</button> 1 <button>+</button>
-</div>
-</div>
-</div>
-
-<div class="item">
-<img src="https://via.placeholder.com/80">
-<div>
-<b>Moisturizer Glow</b><br>
-Rp 60.000
-<div class="qty">
-<button>-</button> 2 <button>+</button>
-</div>
-</div>
-</div>
+<div id="keranjang-container"></div>
 
 </div>
 
@@ -195,12 +165,13 @@ Rp 60.000
 
 <h3>Ringkasan Belanja</h3>
 
-<p>Subtotal: Rp 365.000</p>
-<p>Diskon: Rp 15.000</p>
+<p>Subtotal: <span id="subtotal">Rp 0</span></p>
 
-<hr>
+<p>Diskon: -</p>
 
-<p class="total">Total: Rp 350.000</p>
+<p class="total">
+    Total: <span id="total">Rp 0</span>
+</p>
 
 <a href="/checkout" class="checkout">
     Checkout Sekarang
@@ -213,6 +184,112 @@ Rp 60.000
 </div>
 
 </div>
+
+<script>
+fetch('http://127.0.0.1:8000/api/keranjang')
+.then(response => response.json())
+.then(data => {
+
+    let container = document.getElementById('keranjang-container');
+
+    container.innerHTML = '';
+
+    let subtotal = 0;
+
+    data.forEach(item => {
+        
+    subtotal += item.produk.harga * item.jumlah;
+
+        container.innerHTML += `
+
+
+        <div class="item">
+
+            <img src="/storage/uploads/${item.produk.gambar}">
+
+            <div>
+                <b>${item.produk.nama_produk}</b><br>
+
+                Rp ${item.produk.harga}
+
+                <div class="qty">
+
+                <button onclick="ubahJumlah(${item.id}, 'kurang')">-</button>
+
+                ${item.jumlah}
+
+                <button onclick="ubahJumlah(${item.id}, 'tambah')">+</button>
+
+                <button onclick="hapusKeranjang(${item.id})">
+                    Hapus
+                </button>
+
+                </div>
+            </div>
+
+        </div>
+        `;
+    });
+
+    document.getElementById('subtotal').innerHTML =
+    'Rp ' + subtotal;
+
+    document.getElementById('total').innerHTML =
+    'Rp ' + subtotal;
+
+})
+.catch(error => console.log(error));
+
+
+function ubahJumlah(id, aksi){
+
+    fetch(`http://127.0.0.1:8000/api/keranjang/${id}`, {
+
+        method: 'PUT',
+
+        headers: {
+            'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+            aksi: aksi
+        })
+
+    })
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        location.reload();
+
+    })
+
+    .catch(error => console.log(error));
+}
+
+function hapusKeranjang(id){
+
+    fetch(`http://127.0.0.1:8000/api/keranjang/${id}`, {
+
+        method: 'DELETE'
+
+    })
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        location.reload();
+
+    })
+
+    .catch(error => console.log(error));
+}
+
+</script>
+
+
 
 </body>
 </html>
