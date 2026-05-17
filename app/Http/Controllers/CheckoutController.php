@@ -33,7 +33,12 @@ class CheckoutController extends Controller
                 'jumlah' => $item->jumlah,
                 'harga' => $item->produk->harga
             ]);
-        }
+
+            $item->produk->update([
+                'stok' => $item->produk->stok - $item->jumlah
+            ]);
+
+        }       
 
         return response()->json([
             'message' => 'Checkout berhasil',
