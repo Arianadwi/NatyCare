@@ -48,8 +48,15 @@ class CheckoutController extends Controller
 
     public function show($id)
     {
-        $order = Order::findOrFail($id);
+        $order = Order::with('items.produk')->findOrFail($id);
 
         return response()->json($order);
+    }
+
+    public function index()
+    {
+        $orders = Order::with('items')->get();
+
+        return response()->json($orders);
     }
 }

@@ -14,4 +14,14 @@ class OrderItem extends Model
         'jumlah',
         'harga'
     ];
+
+    public function produk()
+    {
+        return $this->belongsTo(Produk::class);
+    }
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
 }

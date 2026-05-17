@@ -23,6 +23,10 @@ Route::delete('/keranjang/{id}', [KeranjangController::class, 'destroy']);
 Route::post('/checkout', [CheckoutController::class, 'checkout']);
 Route::get('/checkout/{id}', [CheckoutController::class, 'show']);
 
+/*ORDERS */
+Route::get('/orders', [CheckoutController::class, 'index']);
+Route::get('/orders/{id}', [CheckoutController::class, 'show']);
+
 /* YANG PERLU LOGIN */
 Route::middleware('auth:sanctum')->group(function () {
 
