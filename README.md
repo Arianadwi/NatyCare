@@ -20,7 +20,7 @@ Aplikasi NatyCare adalah sistem penjualan skincare berbasis web yang memungkinka
 ## Roadmap NatyCare
 ### Katalog Produk
 - [x] Halaman katalog produk
-- [ ] Menampilkan data produk
+- [x] Menampilkan data produk
 
 ## Proses Pembelian
 - [ ] Keranjang
