@@ -22,7 +22,8 @@ class CheckoutController extends Controller
 
         $order = Order::create([
             'total' => $total,
-            'status' => 'pending'
+            'status' => 'pending',
+            'payment_status' => 'pending'
         ]);
 
         foreach($keranjang as $item){
