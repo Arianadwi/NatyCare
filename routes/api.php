@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\DashboardController;
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
@@ -12,6 +13,9 @@ Route::post('/register', [AuthController::class, 'register']);
 /* PRODUK BISA DIAKSES TANPA LOGIN */
 Route::get('/produk', [ProdukController::class, 'index']);
 Route::get('/produk/{id}', [ProdukController::class, 'show']);
+
+/* DASHBOARD ADMIN */
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
 /* KERANJANG */
 Route::get('/keranjang', [KeranjangController::class, 'index']);
