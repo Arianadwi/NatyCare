@@ -6,6 +6,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LaporanController;
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
@@ -16,6 +17,9 @@ Route::get('/produk/{id}', [ProdukController::class, 'show']);
 
 /* DASHBOARD ADMIN */
 Route::get('/dashboard', [DashboardController::class, 'index']);
+
+/* LAPORAN PENJUALAN (ADMIN*/
+Route::get('/laporan', [LaporanController::class, 'index']);
 
 /* KERANJANG */
 Route::get('/keranjang', [KeranjangController::class, 'index']);
