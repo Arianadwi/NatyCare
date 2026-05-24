@@ -19,7 +19,8 @@ class AuthController extends Controller
             return response()->json([
                 'message' => 'Login berhasil',
                 'token' => $token,
-                'user' => $user
+                'user' => $user,
+                'role' => $user->role
             ]);
         }
 
@@ -46,7 +47,8 @@ public function register(Request $request)
     $user = \App\Models\User::create([
         'name' => $request->name,
         'email' => $request->email,
-        'password' => bcrypt($request->password)
+        'password' => bcrypt($request->password),
+        'role' => $request->role ?? 'user'
     ]);
 
     $token = $user->createToken('auth_token')->plainTextToken;
@@ -54,7 +56,8 @@ public function register(Request $request)
     return response()->json([
         'message' => 'Register berhasil',
         'token' => $token,
-        'user' => $user
+        'user' => $user,
+        'role' => $user->role
     ]);
 }
 }
