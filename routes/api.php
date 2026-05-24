@@ -27,6 +27,9 @@ Route::get('/checkout/{id}', [CheckoutController::class, 'show']);
 Route::get('/orders', [CheckoutController::class, 'index']);
 Route::get('/orders/{id}', [CheckoutController::class, 'show']);
 
+/*PAYMENT GATEWAY*/
+Route::put('/payment/{id}', [CheckoutController::class, 'payment']);
+
 /* YANG PERLU LOGIN */
 Route::middleware('auth:sanctum')->group(function () {
 

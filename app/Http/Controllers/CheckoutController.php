@@ -60,4 +60,18 @@ class CheckoutController extends Controller
 
         return response()->json($orders);
     }
+
+    public function payment($id)
+    {
+        $order = Order::findOrFail($id);
+
+        $order->payment_status = 'paid';
+
+        $order->save();
+
+        return response()->json([
+            'message' => 'Pembayaran berhasil',
+            'data' => $order
+        ]);
+    }
 }
