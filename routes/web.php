@@ -31,3 +31,22 @@ Route::get('/checkout', function () {
 Route::get('/profile', function () {
     return view('profile');
 });
+
+// ======================
+// HALAMAN ADMIN
+// ======================
+
+// DASHBOARD ADMIN
+Route::get('/admin', function () {
+    return view('admin');
+});
+
+// KATALOG PRODUK ADMIN
+Route::get('/adminproduk', function () {
+    return view('adminproduk');
+});
+
+// TRANSAKSI ADMIN
+Route::get('/transaksiadmin', function () {
+    return view('transaksiadmin');
+});
