@@ -55,18 +55,17 @@ body{
 }
 
 /* PROFILE */
-.profile-link{
-    margin-left:30px;
-    font-size:28px;
-    text-decoration:none;
-    color:#f06292 !important;
+.profile-icon{
+    width:40px;
+    height:40px;
+    object-fit:contain;
+    cursor:pointer;
     transition:0.3s;
 }
 
-.profile-link:hover{
+.profile-icon:hover{
     transform:scale(1.1);
 }
-
 /* HERO */
 .hero{
     display:flex;
@@ -109,9 +108,11 @@ body{
 }
 
 .hero img{
-    width:320px;
+    width:500px;
+    max-width:100%;
     position:relative;
     z-index:2;
+    object-fit:contain;
 }
 
 /* TITLE */
@@ -151,12 +152,11 @@ body{
 }
 
 .card img{
-    width:100px;
-    height:100px;
-    object-fit:cover;
-    margin-bottom:10px;
+    width:140px;
+    height:140px;
+    object-fit:contain;
+    margin-bottom:15px;
 }
-
 .card p{
     margin-top:5px;
 }
@@ -201,7 +201,7 @@ body{
 <div class="navbar">
 
     <div class="logo">
-        🌸 NatyCare
+        NatyCare
     </div>
 
     <div class="nav-menu">
@@ -217,9 +217,10 @@ body{
         </a>
 
         <!-- PROFILE -->
-        <a href="/profile" class="profile-link">
-            👤
-        </a>
+        <a href="/profile">
+         <img src="{{ asset('images/profil-admin.png') }}"
+         class="profile-icon">
+</a>
 
     </div>
 
@@ -240,8 +241,7 @@ body{
 
     </div>
 
-    <img src="https://via.placeholder.com/320">
-
+   <img src="{{ asset('images/HeroProduk.png') }}">
 </div>
 
 <!-- TITLE -->
@@ -260,47 +260,47 @@ body{
 <!-- PRODUK -->
 <div class="grid">
 
-    <div class="card">
-        <img src="https://via.placeholder.com/100">
-        <p>Brightening Cleanser</p>
-        <p>Rp 120.000</p>
-        <button class="btn">+ Keranjang</button>
-    </div>
+  <div class="card">
+    <img src="{{ asset('images/FacialWash.png') }}">
+    <p>Brightening Cleanser</p>
+    <p>Rp 120.000</p>
+    <button class="btn">+ Keranjang</button>
+</div>
 
-    <div class="card">
-        <img src="https://via.placeholder.com/100">
-        <p>Hydra Glowing Toner</p>
-        <p>Rp 95.000</p>
-        <button class="btn">+ Keranjang</button>
-    </div>
+<div class="card">
+    <img src="{{ asset('images/Toner.png') }}">
+    <p>Hydra Glowing Toner</p>
+    <p>Rp 95.000</p>
+    <button class="btn">+ Keranjang</button>
+</div>
 
-    <div class="card">
-        <img src="https://via.placeholder.com/100">
-        <p>Anti-Aging Serum</p>
-        <p>Rp 150.000</p>
-        <button class="btn">+ Keranjang</button>
-    </div>
+<div class="card">
+    <img src="{{ asset('images/Serum.png') }}">
+    <p>Anti-Aging Serum</p>
+    <p>Rp 150.000</p>
+    <button class="btn">+ Keranjang</button>
+</div>
 
-    <div class="card">
-        <img src="https://via.placeholder.com/100">
-        <p>Moisturizer Glow</p>
-        <p>Rp 60.000</p>
-        <button class="btn">+ Keranjang</button>
-    </div>
+<div class="card">
+    <img src="{{ asset('images/Moisturizer.png') }}">
+    <p>Moisturizer Glow</p>
+    <p>Rp 60.000</p>
+    <button class="btn">+ Keranjang</button>
+</div>
 
-    <div class="card">
-        <img src="https://via.placeholder.com/100">
-        <p>Serum Brightening</p>
-        <p>Rp 75.000</p>
-        <button class="btn">+ Keranjang</button>
-    </div>
+<div class="card">
+    <img src="{{ asset('images/SerumBrightening.png') }}">
+    <p>Serum Brightening</p>
+    <p>Rp 75.000</p>
+    <button class="btn">+ Keranjang</button>
+</div>
 
-    <div class="card">
-        <img src="https://via.placeholder.com/100">
-        <p>Hydrating Essence</p>
-        <p>Rp 110.000</p>
-        <button class="btn">+ Keranjang</button>
-    </div>
+<div class="card">
+    <img src="{{ asset('images/Essence.png') }}">
+    <p>Hydrating Essence</p>
+    <p>Rp 110.000</p>
+    <button class="btn">+ Keranjang</button>
+</div>
 
 </div>
 
