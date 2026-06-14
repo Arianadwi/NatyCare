@@ -32,8 +32,8 @@ Aplikasi NatyCare adalah sistem penjualan skincare berbasis web yang memungkinka
 - [ ] Update stok
 
 ### Sistem Admin
-- [ ] Login admin
-- [ ] Dashboard admin
+- [x] Login admin
+- [x] Dashboard admin
 - [ ] Manajemen produk
 
 ### Laporan
