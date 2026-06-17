@@ -7,18 +7,24 @@
 
 
 <style>
-    body {
-        font-family: 'Segoe UI', sans-serif;
-        background: #f4f4f4;
-        text-align: center;
+   body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #ffeef5;
+    text-align: center;
     }
 
-    .logo {
-        font-size: 30px;
-        font-weight: bold;
-        color: #f06292;
-        margin-top: 50px;
+   .logo{
+    text-align:center;
+    margin-top:35px;
     }
+
+   .logo img{
+    width:220px;
+    height:auto;
+    display:block;
+    margin:auto;
+    border-radius:15px;
+}
 
     .container {
         width: 400px;
@@ -90,7 +96,9 @@
 
 <body>
 
-<div class="logo">🌸 Natycare</div>
+<div class="logo">
+    <img src="{{ asset('images/LogoNatycarepink.png') }}">
+</div>
 
 <div class="container">
     <h2>Register</h2>

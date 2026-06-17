@@ -35,10 +35,10 @@ body{
     margin-bottom:30px;
 }
 
-.logo{
-    font-size:45px;
-    font-weight:bold;
-    color:#f06292;
+.logo-brand{
+    width:220px;
+    height:auto;
+    display:block;
 }
 
 .icon{
@@ -106,7 +106,7 @@ body{
 .grid{
     flex:3;
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(3,1fr);
     gap:15px;
 }
 
@@ -121,7 +121,13 @@ body{
 .foto{
     width:100%;
     height:180px;
-    background:#f3f3f3;
+    overflow:hidden;
+}
+
+.foto img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
 }
 
 .detail{
@@ -212,7 +218,7 @@ body{
     <div class="navbar">
 
         <div class="logo">
-             Natycare
+             <img src="{{ asset('images/LogoNatycare.png') }}" class="logo-brand">
         </div>
 
         <div class="icon">
@@ -268,174 +274,158 @@ body{
         <div class="grid">
 
             <!-- 1 -->
-            <div class="card" data-kategori="cleanser">
+           <div class="card" data-kategori="cleanser">
 
-                <div class="foto"></div>
+    <div class="foto">
+        <img src="{{ asset('images/FacialWash.png') }}">
+    </div>
 
-                <div class="detail">
+    <div class="detail">
 
-                    <h3>Brightening Cleanser</h3>
+        <h3>Brightening Cleanser</h3>
 
-                    <div class="harga">
-                        Rp 120.000
-                    </div>
+        <div class="harga">
+            Rp 120.000
+        </div>
 
-                    <button class="btn">
-                        Edit
-                    </button>
+        <button class="btn">
+            Edit
+        </button>
 
-                </div>
+    </div>
 
-            </div>
+</div>
 
             <!-- 2 -->
-            <div class="card" data-kategori="toner">
+           <!-- 2 -->
 
-                <div class="foto"></div>
+<div class="card" data-kategori="toner">
 
-                <div class="detail">
+```
+<div class="foto">
+    <img src="{{ asset('images/Toner.png') }}">
+</div>
 
-                    <h3>Hydra Glowing Toner</h3>
+<div class="detail">
 
-                    <div class="harga">
-                        Rp 95.000
-                    </div>
+    <h3>Hydra Glowing Toner</h3>
 
-                    <button class="btn">
-                        Edit
-                    </button>
+    <div class="harga">
+        Rp 95.000
+    </div>
 
-                </div>
+    <button class="btn">
+        Edit
+    </button>
 
-            </div>
+</div>
+```
 
-            <!-- 3 -->
-            <div class="card" data-kategori="serum">
+</div>
 
-                <div class="foto"></div>
+<!-- 3 -->
 
-                <div class="detail">
+<div class="card" data-kategori="serum">
 
-                    <h3>Anti-Aging Serum</h3>
+```
+<div class="foto">
+    <img src="{{ asset('images/Serum.png') }}">
+</div>
 
-                    <div class="harga">
-                        Rp 150.000
-                    </div>
+<div class="detail">
 
-                    <button class="btn">
-                        Edit
-                    </button>
+    <h3>Anti-Aging Serum</h3>
 
-                </div>
+    <div class="harga">
+        Rp 150.000
+    </div>
 
-            </div>
+    <button class="btn">
+        Edit
+    </button>
 
-            <!-- 4 -->
-            <div class="card" data-kategori="serum">
+</div>
+```
 
-                <div class="foto"></div>
+</div>
 
-                <div class="detail">
+<!-- 4 -->
 
-                    <h3>Moisturizer Glow</h3>
+<div class="card" data-kategori="serum">
 
-                    <div class="harga">
-                        Rp 60.000
-                    </div>
+```
+<div class="foto">
+    <img src="{{ asset('images/Moisturizer.png') }}">
+</div>
 
-                    <button class="btn">
-                        Edit
-                    </button>
+<div class="detail">
 
-                </div>
+    <h3>Moisturizer Glow</h3>
 
-            </div>
+    <div class="harga">
+        Rp 60.000
+    </div>
 
-            <!-- 5 -->
-            <div class="card" data-kategori="serum">
+    <button class="btn">
+        Edit
+    </button>
 
-                <div class="foto"></div>
+</div>
+```
 
-                <div class="detail">
+</div>
 
-                    <h3>Serum Brightening</h3>
+<!-- 5 -->
 
-                    <div class="harga">
-                        Rp 75.000
-                    </div>
+<div class="card" data-kategori="serum">
 
-                    <button class="btn">
-                        Edit
-                    </button>
+```
+<div class="foto">
+    <img src="{{ asset('images/SerumBrightening.png') }}">
+</div>
 
-                </div>
+<div class="detail">
 
-            </div>
+    <h3>Serum Brightening</h3>
 
-            <!-- 6 -->
-            <div class="card" data-kategori="toner">
+    <div class="harga">
+        Rp 75.000
+    </div>
 
-                <div class="foto"></div>
+    <button class="btn">
+        Edit
+    </button>
 
-                <div class="detail">
+</div>
+```
 
-                    <h3>Hydrating Essence</h3>
+</div>
 
-                    <div class="harga">
-                        Rp 110.000
-                    </div>
+<!-- 6 -->
 
-                    <button class="btn">
-                        Edit
-                    </button>
+<div class="card" data-kategori="toner">
 
-                </div>
+```
+<div class="foto">
+    <img src="{{ asset('images/Essence.png') }}">
+</div>
 
-            </div>
+<div class="detail">
 
-            <!-- 7 -->
-            <div class="card" data-kategori="cleanser">
+    <h3>Hydrating Essence</h3>
 
-                <div class="foto"></div>
+    <div class="harga">
+        Rp 110.000
+    </div>
 
-                <div class="detail">
+    <button class="btn">
+        Edit
+    </button>
 
-                    <h3>Facial Wash</h3>
+</div>
+```
 
-                    <div class="harga">
-                        Rp 85.000
-                    </div>
-
-                    <button class="btn">
-                        Edit
-                    </button>
-
-                </div>
-
-            </div>
-
-            <!-- 8 -->
-            <div class="card" data-kategori="serum">
-
-                <div class="foto"></div>
-
-                <div class="detail">
-
-                    <h3>Hydra Glow Essence</h3>
-
-                    <div class="harga">
-                        Rp 150.000
-                    </div>
-
-                    <button class="btn">
-                        Edit
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
+</div>
 
         <!-- SIDEBAR -->
         <div class="sidebar">

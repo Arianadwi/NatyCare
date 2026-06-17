@@ -39,12 +39,20 @@ body{
     font-weight:bold;
 }
 
+.logo-brand{
+    width:220px;
+    height:auto;
+}
+
 .admin{
-    background:#ffd6e5;
-    padding:10px 20px;
-    border-radius:10px;
-    color:#f06292;
-    font-weight:bold;
+    background:none;
+    padding:0;
+}
+
+.admin-icon{
+    width:70px;
+    height:70px;
+    object-fit:contain;
 }
 
 /* TITLE */
@@ -117,8 +125,9 @@ body{
 
 .produk img{
     width:100%;
-    height:220px;
-    object-fit:cover;
+    height:180px;
+    object-fit:contain;
+    padding:15px;
 }
 
 .produk-detail{
@@ -155,13 +164,14 @@ body{
     <div class="navbar">
 
         <div class="logo">
-             NatyCare
+            <img src="{{ asset('images/LogoNatycare.png') }}" class="logo-brand">
         </div>
 
-        <div class="admin">
-            👤 Admin
+      <div class="admin">
+         <a href="/profile">
+            <img src="{{ asset('images/AdminPutih.png') }}" class="admin-icon">
+    </a>
         </div>
-
     </div>
 
     <!-- TITLE -->
@@ -205,7 +215,7 @@ body{
 
             <div class="produk">
 
-                <img src="https://via.placeholder.com/300">
+                <img src="{{ asset('images/FacialWash.png') }}">
 
                 <div class="produk-detail">
 
@@ -225,7 +235,7 @@ body{
 
             <div class="produk">
 
-                <img src="https://via.placeholder.com/300">
+                <img src="{{ asset('images/Toner.png') }}">
 
                 <div class="produk-detail">
 
@@ -245,7 +255,7 @@ body{
 
             <div class="produk">
 
-                <img src="https://via.placeholder.com/300">
+                <img src="{{ asset('images/Serum.png') }}">
 
                 <div class="produk-detail">
 

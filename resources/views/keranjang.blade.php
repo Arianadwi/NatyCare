@@ -24,17 +24,22 @@ body {
 }
 
 /* NAVBAR */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 25px 50px;
-    align-items: center;
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
 }
 
 .logo {
     color: #f06292;
     font-size: 24px;
     font-weight: bold;
+}
+.logo-brand{
+    height:60px;
+    width:auto;
+    object-fit:contain;
 }
 
 .nav-menu a {
@@ -133,19 +138,23 @@ body {
 
 <!-- NAVBAR -->
 <div class="navbar">
-    <div class="logo">🌸 NatyCare</div>
+
+    <div class="logo">
+        <img src="{{ asset('images/LogoNatycare.png') }}" class="logo-brand">
+    </div>
 
     <div class="nav-menu">
         <a href="/katalog">Beranda</a>
-        <a href="/keranjang">Keranjang </a>
-        <a href="/katalog/#kontak">Kontak </a>
+        <a href="/keranjang">Keranjang</a>
+        <a href="/katalog/#kontak">Kontak</a>
     </div>
+
 </div>
 
 <!-- HEADER -->
 <div class="header">
     <h2>🛒 Keranjang Belanja Kamu</h2>
-    <p class="note">Cek kembali produk sebelum checkout ya 💖</p>
+    <p class="note">Cek kembali produk sebelum checkout ya</p>
 </div>
 
 <!-- MAIN -->
