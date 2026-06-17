@@ -5,16 +5,21 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: 'Segoe UI', sans-serif;
-            background: #f4f4f4;
-            text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    background: #ffeef5;
+    text-align: center;
         }
 
-        .logo {
-            font-size: 30px;
-            font-weight: bold;
-            color: #f06292;
-            margin-top: 50px;
+       .logo{
+    text-align:center;
+    margin-top:40px;
+        }
+
+      .logo img{
+    width:260px;
+    height:auto;
+    display:block;
+    margin:auto;
         }
 
         .container {
@@ -85,7 +90,9 @@
 </head>
 <body>
 
-<div class="logo">🌸 Natycare</div>
+<div class="logo">
+    <img src="{{ asset('images/LogoNatycareL.png') }}">
+</div>
 
 <div class="container">
     <h2>Login Admin</h2>

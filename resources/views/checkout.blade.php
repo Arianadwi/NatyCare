@@ -33,10 +33,10 @@ body{
     padding:25px 50px;
 }
 
-.logo{
-    color:#f06292;
-    font-size:26px;
-    font-weight:bold;
+.logo-brand{
+    width:220px;
+    height:auto;
+    object-fit:contain;
 }
 
 .nav-menu a{
@@ -307,7 +307,7 @@ textarea{
 <div class="navbar">
 
 <div class="logo">
-🌸 NatyCare
+    <img src="{{ asset('images/LogoNatycare.png') }}" class="logo-brand">
 </div>
 
 <div class="nav-menu">
@@ -321,7 +321,7 @@ textarea{
 <!-- HEADER -->
 <div class="header">
 
-<h2>💖 Checkout Pesanan</h2>
+<h2>Checkout Pesanan</h2>
 
 <p class="note">
 Lengkapi alamat dan pilih metode pengiriman & pembayaran
@@ -338,7 +338,7 @@ Lengkapi alamat dan pilih metode pengiriman & pembayaran
 <!-- ALAMAT -->
 <div class="card">
 
-<h3>📍 Informasi Pengiriman</h3>
+<h3>Informasi Pengiriman</h3>
 
 <p class="note">
 Silakan lengkapi alamat pengiriman Anda

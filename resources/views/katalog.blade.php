@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NatyCare</title>
 
 <style>
@@ -33,13 +34,13 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:25px 50px;
+    padding:10px 50px;
 }
 
-.logo{
-    color:#f06292;
-    font-size:28px;
-    font-weight:bold;
+.logo-brand{
+    height:144px;
+    width:auto;
+    object-fit:contain;
 }
 
 .nav-menu{
@@ -189,7 +190,17 @@ body{
     font-size:15px;
     color:#555;
 }
+.footer{
+    display:flex;
+    justify-content:space-between;
+    padding:25px 50px;
+    border-top:1px solid #eee;
+}
 
+.col{
+    font-size:15px;
+    color:#555;
+}
 </style>
 </head>
 
@@ -200,9 +211,9 @@ body{
 <!-- NAVBAR -->
 <div class="navbar">
 
-    <div class="logo">
-        NatyCare
-    </div>
+   <div class="logo">
+    <img src="{{ asset('images/LogoNatyCare.png') }}" class="logo-brand">
+</div>
 
     <div class="nav-menu">
 
