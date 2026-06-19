@@ -23,18 +23,18 @@ Aplikasi NatyCare adalah sistem penjualan skincare berbasis web yang memungkinka
 - [x] Menampilkan data produk
 
 ## Proses Pembelian
-- [ ] Keranjang
-- [ ] Checkout
+- [X] Keranjang
+- [X] Checkout
 
 ### Pembayaran & Transaksi
 - [ ] Pembayaran QRIS
 - [ ] Penyimpanan transaksi
-- [ ] Update stok
+- [X] Update stok
 
 ### Sistem Admin
 - [x] Login admin
 - [x] Dashboard admin
-- [ ] Manajemen produk
+- [X] Manajemen produk
 
 ### Laporan
 - [ ] Riwayat transaksi
