@@ -5,16 +5,21 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: 'Segoe UI', sans-serif;
-            background: #f4f4f4;
-            text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    background: #ffeef5;
+    text-align: center;
         }
 
-        .logo {
-            font-size: 30px;
-            font-weight: bold;
-            color: #f06292;
-            margin-top: 50px;
+       .logo{
+    text-align:center;
+    margin-top:40px;
+        }
+
+      .logo img{
+    width:260px;
+    height:auto;
+    display:block;
+    margin:auto;
         }
 
         .container {
@@ -85,12 +90,14 @@
 </head>
 <body>
 
-<div class="logo">🌸 Natycare</div>
+<div class="logo">
+    <img src="{{ asset('images/LogoNatycareL.png') }}">
+</div>
 
 <div class="container">
     <h2>Login Admin</h2>
 
-    <form method="POST" action="/api/login">
+    <form onsubmit="event.preventDefault(); loginUser();">
         @csrf
 
         <div class="input-group">
@@ -112,6 +119,43 @@
         Belum punya akun? <a href="/register">Daftar</a>
     </div>
 </div>
+    <script>
+function loginUser() {
+    const email = document.querySelector('input[name="email"]').value;
+    const password = document.querySelector('input[name="password"]').value;
 
+    fetch("http://127.0.0.1:8000/api/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+            email: email,
+            password: password
+        })
+    })
+    .then(async res => {
+        const data = await res.json();
+        console.log(data);
+
+        if (res.ok) {
+            // 🔥 SIMPAN TOKEN
+            localStorage.setItem("token", data.token);
+
+            alert("Login berhasil");
+
+            // 🔥 PINDAH KE KATALOG
+            window.location.href = "/katalog";
+        } else {
+            alert(data.message);
+        }
+    })
+    .catch(err => {
+        console.log(err);
+        alert("Terjadi error");
+    });
+}
+</script>
 </body>
 </html>

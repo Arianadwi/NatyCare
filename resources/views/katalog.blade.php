@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NatyCare</title>
 
 <style>
@@ -10,6 +11,10 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
@@ -29,13 +34,13 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:25px 50px;
+    padding:10px 50px;
 }
 
-.logo{
-    color:#f06292;
-    font-size:28px;
-    font-weight:bold;
+.logo-brand{
+    height:144px;
+    width:auto;
+    object-fit:contain;
 }
 
 .nav-menu{
@@ -51,44 +56,64 @@ body{
 }
 
 /* PROFILE */
-.profile-link{
-    margin-left:30px;
-    font-size:28px;
-    text-decoration:none;
-    color:#f06292 !important;
+.profile-icon{
+    width:40px;
+    height:40px;
+    object-fit:contain;
+    cursor:pointer;
     transition:0.3s;
 }
 
-.profile-link:hover{
+.profile-icon:hover{
     transform:scale(1.1);
 }
-
 /* HERO */
 .hero{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:60px;
-    background:linear-gradient(to right,#ffd6e5,#fff);
+    padding:80px 60px;
+    background:url('/storage/images/bgkatalog.jpg') no-repeat center;
+    background-size:cover;
+    position:relative;
+    color:white;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:rgba(255,182,193,0.4);
 }
 
 .hero-text{
     width:50%;
+    position:relative;
+    z-index:2;
 }
 
 .hero h1{
-    color:#f06292;
+    color:white;
     font-size:42px;
     margin-bottom:15px;
+    text-shadow:2px 2px 5px rgba(0,0,0,0.4);
 }
 
 .hero p{
     font-size:22px;
-    color:#555;
+    color:white;
+    text-shadow:2px 2px 5px rgba(0,0,0,0.4);
 }
 
 .hero img{
-    width:320px;
+    width:500px;
+    max-width:100%;
+    position:relative;
+    z-index:2;
+    object-fit:contain;
 }
 
 /* TITLE */
@@ -128,10 +153,11 @@ body{
 }
 
 .card img{
-    width:100px;
-    margin-bottom:10px;
+    width:140px;
+    height:140px;
+    object-fit:contain;
+    margin-bottom:15px;
 }
-
 .card p{
     margin-top:5px;
 }
@@ -164,7 +190,17 @@ body{
     font-size:15px;
     color:#555;
 }
+.footer{
+    display:flex;
+    justify-content:space-between;
+    padding:25px 50px;
+    border-top:1px solid #eee;
+}
 
+.col{
+    font-size:15px;
+    color:#555;
+}
 </style>
 </head>
 
@@ -175,9 +211,9 @@ body{
 <!-- NAVBAR -->
 <div class="navbar">
 
-    <div class="logo">
-        🌸 NatyCare
-    </div>
+   <div class="logo">
+    <img src="{{ asset('images/LogoNatyCare.png') }}" class="logo-brand">
+</div>
 
     <div class="nav-menu">
 
@@ -187,14 +223,15 @@ body{
             Keranjang 🛒
         </a>
 
-        <a href="#">
+        <a href="#kontak">
             Kontak 📞
         </a>
 
         <!-- PROFILE -->
-        <a href="/profile" class="profile-link">
-            👤
-        </a>
+        <a href="/profile">
+         <img src="{{ asset('images/profil-admin.png') }}"
+         class="profile-icon">
+</a>
 
     </div>
 
@@ -204,15 +241,18 @@ body{
 <div class="hero">
 
     <div class="hero-text">
-        <h1>Selamat Datang di NatyCare Skincare</h1>
+
+        <h1>
+            Selamat Datang di NatyCare Skincare
+        </h1>
 
         <p>
             Kulit Sehat • Cantik Alami • Percaya Diri
         </p>
+
     </div>
 
-    <img src="https://via.placeholder.com/320">
-
+   <img src="{{ asset('images/HeroProduk.png') }}">
 </div>
 
 <!-- TITLE -->
@@ -231,124 +271,55 @@ body{
 <!-- PRODUK -->
 <div class="grid">
 
-    <!-- PRODUK 1 -->
-    <div class="card">
+  <div class="card">
+    <img src="{{ asset('images/FacialWash.png') }}">
+    <p>Brightening Cleanser</p>
+    <p>Rp 120.000</p>
+    <button class="btn">+ Keranjang</button>
+</div>
 
-        <img src="https://via.placeholder.com/100">
+<div class="card">
+    <img src="{{ asset('images/Toner.png') }}">
+    <p>Hydra Glowing Toner</p>
+    <p>Rp 95.000</p>
+    <button class="btn">+ Keranjang</button>
+</div>
 
-        <p>
-            Brightening Cleanser
-        </p>
+<div class="card">
+    <img src="{{ asset('images/Serum.png') }}">
+    <p>Anti-Aging Serum</p>
+    <p>Rp 150.000</p>
+    <button class="btn">+ Keranjang</button>
+</div>
 
-        <p>
-            Rp 120.000
-        </p>
+<div class="card">
+    <img src="{{ asset('images/Moisturizer.png') }}">
+    <p>Moisturizer Glow</p>
+    <p>Rp 60.000</p>
+    <button class="btn">+ Keranjang</button>
+</div>
 
-        <button class="btn">
-            + Keranjang
-        </button>
+<div class="card">
+    <img src="{{ asset('images/SerumBrightening.png') }}">
+    <p>Serum Brightening</p>
+    <p>Rp 75.000</p>
+    <button class="btn">+ Keranjang</button>
+</div>
 
-    </div>
-
-    <!-- PRODUK 2 -->
-    <div class="card">
-
-        <img src="https://via.placeholder.com/100">
-
-        <p>
-            Hydra Glowing Toner
-        </p>
-
-        <p>
-            Rp 95.000
-        </p>
-
-        <button class="btn">
-            + Keranjang
-        </button>
-
-    </div>
-
-    <!-- PRODUK 3 -->
-    <div class="card">
-
-        <img src="https://via.placeholder.com/100">
-
-        <p>
-            Anti-Aging Serum
-        </p>
-
-        <p>
-            Rp 150.000
-        </p>
-
-        <button class="btn">
-            + Keranjang
-        </button>
-
-    </div>
-
-    <!-- PRODUK 4 -->
-    <div class="card">
-
-        <img src="https://via.placeholder.com/100">
-
-        <p>
-            Moisturizer Glow
-        </p>
-
-        <p>
-            Rp 60.000
-        </p>
-
-        <button class="btn">
-            + Keranjang
-        </button>
-
-    </div>
-
-    <!-- PRODUK 5 -->
-    <div class="card">
-
-        <img src="https://via.placeholder.com/100">
-
-        <p>
-            Serum Brightening
-        </p>
-
-        <p>
-            Rp 75.000
-        </p>
-
-        <button class="btn">
-            + Keranjang
-        </button>
-
-    </div>
-
-    <!-- PRODUK 6 -->
-    <div class="card">
-
-        <img src="https://via.placeholder.com/100">
-
-        <p>
-            Hydrating Essence
-        </p>
-
-        <p>
-            Rp 110.000
-        </p>
-
-        <button class="btn">
-            + Keranjang
-        </button>
-
-    </div>
+<div class="card">
+    <img src="{{ asset('images/Essence.png') }}">
+    <p>Hydrating Essence</p>
+    <p>Rp 110.000</p>
+    <button class="btn">+ Keranjang</button>
+</div>
 
 </div>
 
+<!-- PRODUK DINAMIS -->
+<div class="grid" id="produk-container"></div>
+
 <!-- FOOTER -->
-<div class="footer">
+<div class="footer" id="kontak">
 
     <div class="col">
         <b>Kontak Kami</b><br>
@@ -368,6 +339,77 @@ body{
 </div>
 
 </div>
+
+@verbatim
+<script>
+
+fetch('http://127.0.0.1:8000/api/produk')
+
+.then(response => response.json())
+
+.then(data => {
+
+    let container = document.getElementById('produk-container');
+
+    container.innerHTML = '';
+
+    data.forEach(item => {
+
+        container.innerHTML += `
+        <div class="card">
+
+            <img src="${item.gambar}">
+
+            <p>${item.nama_produk}</p>
+
+            <p>${item.deskripsi}</p>
+
+            <p>Rp ${item.harga}</p>
+
+            <button class="btn" onclick="tambahKeranjang(${item.id})">
+                + Keranjang
+            </button>
+
+        </div>
+        `;
+
+    });
+
+})
+
+.catch(error => console.log(error));
+
+function tambahKeranjang(id){
+
+    fetch('http://127.0.0.1:8000/api/keranjang', {
+
+        method:'POST',
+
+        headers:{
+            'Content-Type':'application/json'
+        },
+
+        body:JSON.stringify({
+            produk_id:id,
+            jumlah:1
+        })
+
+    })
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        alert('Produk berhasil masuk keranjang 💖');
+
+    })
+
+    .catch(error => console.log(error));
+
+}
+
+</script>
+@endverbatim
 
 </body>
 </html>
