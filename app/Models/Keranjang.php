@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Produk;
+use App\Models\User;
 
 class Keranjang extends Model
 {
     protected $table = 'keranjang';
 
     protected $fillable = [
+        'user_id',
         'produk_id',
         'jumlah'
     ];
@@ -17,5 +19,10 @@ class Keranjang extends Model
     public function produk()
     {
         return $this->belongsTo(Produk::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

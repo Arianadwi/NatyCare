@@ -8,50 +8,63 @@ use App\Models\Keranjang;
 class KeranjangController extends Controller
 {
     // GET semua isi keranjang
-    public function index()
+    public function index(Request $request)
     {
         return response()->json(
-            Keranjang::with('produk')->get()
+            Keranjang::with('produk')
+                ->where('user_id', $request->user()->id)
+                ->get()
         );
     }
 
     // POST tambah ke keranjang
     public function store(Request $request)
-{
-    $keranjang = Keranjang::where('produk_id', $request->produk_id)
-                    ->first();
+    {
+        $request->validate([
+            'produk_id' => 'required|exists:produks,id',
+            'jumlah' => 'nullable|integer|min:1',
+        ]);
 
-    if($keranjang){
+        $jumlah = $request->jumlah ?? 1;
 
-        $keranjang->jumlah += 1;
-        $keranjang->save();
+        $keranjang = Keranjang::where('user_id', $request->user()->id)
+            ->where('produk_id', $request->produk_id)
+            ->first();
 
-    } else {
+        if ($keranjang) {
+            $keranjang->jumlah += $jumlah;
+            $keranjang->save();
+        } else {
+            $keranjang = Keranjang::create([
+                'user_id' => $request->user()->id,
+                'produk_id' => $request->produk_id,
+                'jumlah' => $jumlah
+            ]);
+        }
 
-        $keranjang = Keranjang::create([
-            'produk_id' => $request->produk_id,
-            'jumlah' => 1
+        return response()->json([
+            'message' => 'Produk berhasil ditambahkan ke keranjang',
+            'data' => $keranjang
         ]);
     }
-
-    return response()->json([
-        'message' => 'Produk berhasil ditambahkan ke keranjang',
-        'data' => $keranjang
-    ]);
-}
 
     // UPDATE jumlah produk
     public function update(Request $request, $id)
     {
-        $keranjang = Keranjang::findOrFail($id);
+        $request->validate([
+            'aksi' => 'required|in:tambah,kurang',
+        ]);
 
-        if($request->aksi == 'tambah'){
+        $keranjang = Keranjang::where('user_id', $request->user()->id)
+            ->where('id', $id)
+            ->firstOrFail();
+
+        if ($request->aksi == 'tambah') {
             $keranjang->jumlah += 1;
         }
 
-        if($request->aksi == 'kurang'){
-
-            if($keranjang->jumlah > 1){
+        if ($request->aksi == 'kurang') {
+            if ($keranjang->jumlah > 1) {
                 $keranjang->jumlah -= 1;
             }
         }
@@ -65,9 +78,12 @@ class KeranjangController extends Controller
     }
 
     // DELETE produk dari keranjang
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        Keranjang::destroy($id);
+        Keranjang::where('user_id', $request->user()->id)
+            ->where('id', $id)
+            ->firstOrFail()
+            ->delete();
 
         return response()->json([
             'message' => 'Produk berhasil dihapus dari keranjang'
