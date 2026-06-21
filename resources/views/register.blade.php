@@ -1,145 +1,61 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="id">
 <head>
-    <title>Register Natycare</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register NatyCare</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
-
-<style>
-   body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #ffeef5;
-    text-align: center;
-    }
-
-   .logo{
-    text-align:center;
-    margin-top:35px;
-    }
-
-   .logo img{
-    width:220px;
-    height:auto;
-    display:block;
-    margin:auto;
-    border-radius:15px;
-}
-
-    .container {
-        width: 400px;
-        margin: 20px auto;
-        padding: 30px;
-        background: #fff;
-        border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        text-align: left;
-    }
-
-    h2 {
-        text-align: center;
-        color: #e91e63;
-        margin-bottom: 20px;
-    }
-
-    label {
-        font-size: 14px;
-        font-weight: bold;
-        color: #e84393;
-    }
-
-    .input-group {
-        position: relative;
-        margin-bottom: 15px;
-    }
-
-    .input-group i {
-        position: absolute;
-        top: 38px;
-        left: 10px;
-        color: #e84393;
-    }
-
-    input {
-        width: 100%;
-        padding: 10px 10px 10px 35px;
-        margin-top: 5px;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        box-sizing: border-box;
-    }
-
-    button {
-        width: 100%;
-        padding: 10px;
-        background: linear-gradient(to right, #f8a5c2, #e84393);
-        border: none;
-        color: white;
-        border-radius: 8px;
-        font-weight: bold;
-        margin-top: 10px;
-    }
-
-    .link {
-        margin-top: 15px;
-        text-align: center;
-        font-size: 14px;
-    }
-
-    .link a {
-        color: #e84393;
-        text-decoration: none;
-    }
-</style>
-
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{min-height:100vh;font-family:'Segoe UI',Arial,sans-serif;background:#ffeef5;display:flex;align-items:center;justify-content:center;padding:28px 16px}
+        .auth-page{width:100%;max-width:450px;text-align:center}.logo{margin-bottom:18px}
+        .logo img{width:min(220px,62vw);height:auto;display:block;margin:auto;object-fit:contain}
+        .container{width:100%;background:#fff;border-radius:18px;padding:30px;box-shadow:0 14px 35px rgba(224,70,130,.14);text-align:left}
+        h2{text-align:center;color:#e84393;margin-bottom:24px;font-size:28px}
+        label{display:block;font-size:14px;font-weight:700;color:#d83f82;margin-bottom:7px}
+        .input-group{position:relative;margin-bottom:16px}.input-group i{position:absolute;left:14px;bottom:14px;color:#e84393;font-size:15px}
+        input{width:100%;min-height:46px;padding:12px 14px 12px 42px;border-radius:10px;border:1px solid #ead8df;outline:none;font-size:15px;transition:.2s}
+        input:focus{border-color:#e84393;box-shadow:0 0 0 3px rgba(232,67,147,.12)}
+        button{width:100%;min-height:46px;padding:12px;background:#f06292;border:none;color:white;border-radius:10px;font-weight:700;font-size:16px;cursor:pointer;margin-top:4px;transition:.2s}
+        button:hover{background:#ec407a}.link{margin-top:18px;text-align:center;font-size:14px;color:#666}
+        .link a{color:#e84393;text-decoration:none;font-weight:700}.link a:hover{text-decoration:underline}
+        @media(max-width:480px){body{align-items:flex-start;padding-top:22px}.container{padding:24px 20px;border-radius:16px}h2{font-size:24px}.logo img{width:min(185px,58vw)}}
+    </style>
 </head>
-
 <body>
-
-<div class="logo">
-    <img src="{{ asset('images/LogoNatycarepink.png') }}">
-</div>
-
-<div class="container">
-    <h2>Register</h2>
-
-
-<form onsubmit="event.preventDefault(); registerUser();">
-
-    <div class="input-group">
-        <label>Nama</label>
-        <i class="fa fa-user"></i>
-        <input type="text" name="name" placeholder="Masukkan nama" required>
+<main class="auth-page">
+    <div class="logo">
+        <img src="{{ asset('images/LogoN.png') }}" alt="Logo NatyCare">
     </div>
-
-    <div class="input-group">
-        <label>Email</label>
-        <i class="fa fa-envelope"></i>
-        <input type="email" name="email" placeholder="Masukkan email" required>
+    <div class="container">
+        <h2>Daftar Akun</h2>
+        <form onsubmit="event.preventDefault(); registerUser();">
+            <div class="input-group">
+                <label>Nama</label>
+                <i class="fa fa-user"></i>
+                <input type="text" name="name" placeholder="Masukkan nama" required>
+            </div>
+            <div class="input-group">
+                <label>Email</label>
+                <i class="fa fa-envelope"></i>
+                <input type="email" name="email" placeholder="Masukkan email" required>
+            </div>
+            <div class="input-group">
+                <label>Kata Sandi</label>
+                <i class="fa fa-lock"></i>
+                <input type="password" name="password" placeholder="Masukkan kata sandi" required>
+            </div>
+            <div class="input-group">
+                <label>Konfirmasi Kata Sandi</label>
+                <i class="fa fa-lock"></i>
+                <input type="password" name="password_confirmation" placeholder="Ulangi kata sandi" required>
+            </div>
+            <button type="submit">Daftar</button>
+        </form>
+        <div class="link">Sudah punya akun? <a href="/login">Login</a></div>
     </div>
-
-    <div class="input-group">
-        <label>Kata Sandi</label>
-        <i class="fa fa-lock"></i>
-        <input type="password" name="password" placeholder="Masukkan kata sandi" required>
-    </div>
-
-    <div class="input-group">
-        <label>Konfirmasi Kata Sandi</label>
-        <i class="fa fa-lock"></i>
-        <input type="password" name="password_confirmation" placeholder="Ulangi kata sandi" required>
-    </div>
-
-    <button type="submit">Daftar</button>
-</form>
-
-<div class="link">
-    Sudah punya akun? <a href="/login">Login</a>
-</div>
-
-
-</div>
-
+</main>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 function registerUser() {
     const name = document.querySelector('input[name="name"]').value.trim();
@@ -149,7 +65,11 @@ function registerUser() {
 
     // validasi sederhana
     if (!name || !email || !password || !password_confirmation) {
-        alert("Semua field wajib diisi");
+        Swal.fire({
+            icon:'error',
+            title:'Gagal',
+            text:'Semua field wajib diisi'
+        });
         return;
     }
 
@@ -176,7 +96,13 @@ function registerUser() {
         console.log("RESPONSE:", data);
 
         if (res.ok) {
-            alert("Register berhasil, silakan login");
+            Swal.fire({
+    icon:'success',
+    title:'Berhasil',
+    text:'Registrasi berhasil',
+    timer:1500,
+    showConfirmButton:false
+});
             document.querySelector("form").reset();
         } else {
             alert(data.message || "Register gagal");
@@ -188,6 +114,5 @@ function registerUser() {
     });
 }
 </script>
-
 </body>
 </html>
