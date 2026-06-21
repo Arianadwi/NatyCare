@@ -15,38 +15,44 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::get('/produk', [ProdukController::class, 'index']);
 Route::get('/produk/{id}', [ProdukController::class, 'show']);
 
-/* DASHBOARD ADMIN */
-Route::get('/dashboard', [DashboardController::class, 'index']);
-
-/* LAPORAN PENJUALAN (ADMIN*/
-Route::get('/laporan', [LaporanController::class, 'index']);
-
-/* PROFILE */
-Route::get('/profile', [AuthController::class, 'profile']);
-    Route::put('/profile', [AuthController::class, 'updateProfile']);
-
-/* KERANJANG */
-Route::get('/keranjang', [KeranjangController::class, 'index']);
-Route::post('/keranjang', [KeranjangController::class, 'store']);
-Route::put('/keranjang/{id}', [KeranjangController::class, 'update']);
-Route::delete('/keranjang/{id}', [KeranjangController::class, 'destroy']);
-
-/* CHECKOUT */
-Route::post('/checkout', [CheckoutController::class, 'checkout']);
-Route::get('/checkout/{id}', [CheckoutController::class, 'show']);
-
-/*ORDERS */
-Route::get('/orders', [CheckoutController::class, 'index']);
-Route::get('/orders/{id}', [CheckoutController::class, 'show']);
-
-/*PAYMENT GATEWAY*/
-Route::put('/payment/{id}', [CheckoutController::class, 'payment']);
-
 /* YANG PERLU LOGIN */
 Route::middleware('auth:sanctum')->group(function () {
 
+    /* DASHBOARD ADMIN */
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+
+    /* LAPORAN PENJUALAN (ADMIN) */
+    Route::get('/laporan', [LaporanController::class, 'index']);
+
+    Route::get('/profile', [AuthController::class, 'profile']);
+    Route::put('/profile', [AuthController::class, 'updateProfile']);
+
+    /* ALAMAT */
+    Route::get('/addresses', [AddressController::class, 'index']);
+    Route::post('/addresses', [AddressController::class, 'store']);
+    Route::put('/addresses/{id}', [AddressController::class, 'update']);
+
+    /* KERANJANG */
+    Route::get('/keranjang', [KeranjangController::class, 'index']);
+    Route::post('/keranjang', [KeranjangController::class, 'store']);
+    Route::put('/keranjang/{id}', [KeranjangController::class, 'update']);
+    Route::delete('/keranjang/{id}', [KeranjangController::class, 'destroy']);
+
+    /* CHECKOUT */
+    Route::post('/checkout', [CheckoutController::class, 'checkout']);
+    Route::get('/checkout/{id}', [CheckoutController::class, 'show']);
+
+    /* ORDERS */
+    Route::get('/orders', [CheckoutController::class, 'index']);
+    Route::get('/orders/{id}', [CheckoutController::class, 'show']);
+    Route::put('/orders/{id}/status', [CheckoutController::class, 'updateStatus']);
+
+    /* PAYMENT GATEWAY */
+    Route::put('/payment/{id}', [CheckoutController::class, 'payment']);
+    
     Route::post('/produk', [ProdukController::class, 'store']);
     Route::put('/produk/{id}', [ProdukController::class, 'update']);
+    Route::post('/produk/{id}/update', [ProdukController::class, 'update']);
     Route::delete('/produk/{id}', [ProdukController::class, 'destroy']);
 
 });
