@@ -21,6 +21,10 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 /* LAPORAN PENJUALAN (ADMIN*/
 Route::get('/laporan', [LaporanController::class, 'index']);
 
+/* PROFILE */
+Route::get('/profile', [AuthController::class, 'profile']);
+    Route::put('/profile', [AuthController::class, 'updateProfile']);
+
 /* KERANJANG */
 Route::get('/keranjang', [KeranjangController::class, 'index']);
 Route::post('/keranjang', [KeranjangController::class, 'store']);
