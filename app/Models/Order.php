@@ -9,6 +9,10 @@ class Order extends Model
     protected $table = 'orders';
 
     protected $fillable = [
+        'metode_pembayaran',
+        'metode_pengiriman',
+        'ongkir',
+        'subtotal',
         'total',
         'status',
         'payment_status'
