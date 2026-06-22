@@ -6,10 +6,12 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\AddressController;
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
+Route::post('/admin/register', [AuthController::class, 'registerAdmin']);
 
 /* PRODUK BISA DIAKSES TANPA LOGIN */
 Route::get('/produk', [ProdukController::class, 'index']);
@@ -20,6 +22,12 @@ Route::middleware('auth:sanctum')->group(function () {
 
     /* DASHBOARD ADMIN */
     Route::get('/dashboard', [DashboardController::class, 'index']);
+
+    /* LAPORAN PENJUALAN (ADMIN) */
+    Route::get('/laporan', [LaporanController::class, 'index']);
+
+    Route::get('/profile', [AuthController::class, 'profile']);
+    Route::put('/profile', [AuthController::class, 'updateProfile']);
 
     /* ALAMAT */
     Route::get('/addresses', [AddressController::class, 'index']);
