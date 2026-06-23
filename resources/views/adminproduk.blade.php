@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Natycare Admin</title>
-
+<title>Kelola Produk - NatyCare</title>
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -17,100 +15,127 @@
 body{
     background:#fff3f7;
     padding:30px;
+    color:#333;
 }
 
 .container{
-    width:1200px;
+    max-width:1200px;
     margin:auto;
     background:white;
     border-radius:20px;
     padding:25px;
 }
 
-/* NAVBAR */
 .navbar{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:30px;
+    margin-bottom:25px;
 }
 
 .logo-brand{
     width:220px;
     height:auto;
-    display:block;
 }
 
-.icon{
-    display:flex;
-    gap:10px;
+.hamburger{
+    display:none;
+    background:none;
+    border:none;
+    font-size:24px;
+    cursor:pointer;
 }
 
-.icon div{
-    background:#ffd6e5;
-    padding:10px 18px;
-    border-radius:10px;
+.nav a,
+.nav button{
+    margin-left:18px;
+    text-decoration:none;
+    color:#000;
+    background:none;
+    border:0;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.nav a:hover,
+.nav button:hover{
     color:#f06292;
 }
 
-/* TITLE */
 .title{
-    font-size:40px;
-    margin-bottom:25px;
+    font-size:36px;
+    font-weight:700;
+    margin-bottom:20px;
     color:#444;
 }
 
-/* TOP */
-.top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:25px;
+.layout{
+    display:grid;
+    grid-template-columns:1fr 2fr;
+    gap:22px;
 }
 
-.kategori{
-    display:flex;
-    gap:10px;
+.panel{
+    border:1px solid #eee;
+    border-radius:15px;
+    padding:18px;
+    background:white;
 }
 
-.kategori button{
-    padding:12px 20px;
-    border:none;
+.panel h2{
+    color:#f06292;
+    margin-bottom:15px;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
     border-radius:10px;
-    background:#f5f5f5;
-    cursor:pointer;
-    transition:0.3s;
-    font-size:15px;
+    margin-bottom:12px;
 }
 
-.kategori button.active{
-    background:#f8a7c2;
+textarea{
+    min-height:90px;
+    resize:vertical;
+}
+
+.btn{
+    border:0;
+    border-radius:10px;
+    padding:11px 14px;
+    cursor:pointer;
+    background:#f06292;
     color:white;
 }
 
-.search input{
-    width:250px;
-    padding:12px;
-    border:1px solid #ddd;
-    border-radius:15px;
-    outline:none;
+.btn.secondary{
+    background:#8bc98b;
 }
 
-/* CONTENT */
-.content{
+.btn.danger{
+    background:#e85757;
+}
+
+.btn.light{
+    background:#f5f5f5;
+    color:#555;
+}
+
+.actions{
     display:flex;
-    gap:20px;
+    gap:8px;
+    flex-wrap:wrap;
 }
 
-/* GRID */
 .grid{
-    flex:3;
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:15px;
 }
 
-/* CARD */
 .card{
     border:1px solid #eee;
     border-radius:15px;
@@ -118,456 +143,278 @@ body{
     background:white;
 }
 
-.foto{
+.card img{
     width:100%;
-    height:180px;
-    overflow:hidden;
-}
-
-.foto img{
-    width:100%;
-    height:100%;
+    height:150px;
     object-fit:contain;
+    padding:12px;
+    background:#fff7fa;
 }
 
 .detail{
-    padding:15px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    height:210px;
+    padding:14px;
 }
 
 .detail h3{
-    font-size:18px;
-    margin-bottom:10px;
-    color:#333;
+    font-size:17px;
+    margin-bottom:8px;
 }
 
-.harga{
-    font-size:30px;
+.price{
+    font-size:22px;
     color:#f06292;
     font-weight:bold;
-    margin-bottom:15px;
+    margin-bottom:8px;
 }
 
-.btn{
-    width:100%;
-    padding:10px;
-    border:none;
-    border-radius:8px;
-    background:#8bc98b;
-    color:white;
-    cursor:pointer;
-    font-size:16px;
-    transition:0.3s;
-}
-
-.btn:hover{
-    background:#70b870;
-}
-
-/* SIDEBAR */
-.sidebar{
-    flex:1;
-}
-
-.box{
-    border:1px solid #eee;
-    border-radius:15px;
-    padding:15px;
-    margin-bottom:15px;
-}
-
-.box h2{
-    margin-bottom:15px;
-    color:#444;
-}
-
-.item{
-    border:1px solid #f3f3f3;
-    border-radius:10px;
-    padding:10px;
-    margin-bottom:10px;
-}
-
-.item p{
+.muted{
     color:#777;
-    margin-bottom:5px;
+    font-size:14px;
+    margin-bottom:8px;
 }
 
-.item h3{
-    color:#f06292;
+.empty{
+    padding:18px;
+    text-align:center;
+    color:#777;
+    background:#fff7fa;
+    border-radius:12px;
 }
 
-/* FOOTER */
-.footer{
-    text-align:right;
-    color:#aaa;
-    margin-top:10px;
-}
+@media(max-width:900px){
 
+    .layout{
+        grid-template-columns:1fr;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .navbar{
+        position:relative;
+        justify-content:space-between;
+        align-items:center;
+    }
+
+    .logo-brand{
+        width:150px;
+    }
+
+    .hamburger{
+        display:block;
+    }
+
+    .nav{
+        display:none;
+        position:absolute;
+        top:60px;
+        right:0;
+        width:200px;
+        background:white;
+        border-radius:12px;
+        box-shadow:0 4px 12px rgba(0,0,0,.1);
+        padding:15px;
+        flex-direction:column;
+        gap:12px;
+        z-index:999;
+    }
+
+    .nav.active{
+        display:flex;
+    }
+
+    .nav a,
+    .nav button{
+        margin:0;
+        text-align:left;
+    }
+
+    .title{
+        text-align:center;
+        font-size:28px;
+    }
+
+    .container{
+        padding:18px;
+    }
+}
 </style>
-
 </head>
 <body>
-
 <div class="container">
-
-    <!-- NAVBAR -->
     <div class="navbar">
 
-        <div class="logo">
-             <img src="{{ asset('images/LogoNatycare.png') }}" class="logo-brand">
-        </div>
+    <img src="{{ asset('images/LogoNatycare.png') }}"
+         class="logo-brand"
+         alt="NatyCare">
 
-        <div class="icon">
-
-            <div>➖</div>
-
-            <div>👤</div>
-
-        </div>
-
-    </div>
-
-    <!-- TITLE -->
-    <h1 class="title">
-        Katalog Produk
-    </h1>
-
-    <!-- TOP -->
-    <div class="top">
-
-        <div class="kategori">
-
-            <button class="active" data-kategori="semua">
-                Semua
-            </button>
-
-            <button data-kategori="cleanser">
-                Cleanser
-            </button>
-
-            <button data-kategori="toner">
-                Toner
-            </button>
-
-            <button data-kategori="serum">
-                Serum
-            </button>
-
-        </div>
-
-        <div class="search">
-
-            <input type="text" placeholder="Cari produk...">
-
-        </div>
-
-    </div>
-
-    <!-- CONTENT -->
-    <div class="content">
-
-        <!-- PRODUK -->
-        <div class="grid">
-
-            <!-- 1 -->
-           <div class="card" data-kategori="cleanser">
-
-    <div class="foto">
-        <img src="{{ asset('images/FacialWash.png') }}">
-    </div>
-
-    <div class="detail">
-
-        <h3>Brightening Cleanser</h3>
-
-        <div class="harga">
-            Rp 120.000
-        </div>
-
-        <button class="btn">
-            Edit
-        </button>
-
-    </div>
-
-</div>
-
-            <!-- 2 -->
-           <!-- 2 -->
-
-<div class="card" data-kategori="toner">
-
-```
-<div class="foto">
-    <img src="{{ asset('images/Toner.png') }}">
-</div>
-
-<div class="detail">
-
-    <h3>Hydra Glowing Toner</h3>
-
-    <div class="harga">
-        Rp 95.000
-    </div>
-
-    <button class="btn">
-        Edit
+    <button class="hamburger"
+            onclick="toggleMenu()">
+        ☰
     </button>
 
-</div>
-```
-
-</div>
-
-<!-- 3 -->
-
-<div class="card" data-kategori="serum">
-
-```
-<div class="foto">
-    <img src="{{ asset('images/Serum.png') }}">
-</div>
-
-<div class="detail">
-
-    <h3>Anti-Aging Serum</h3>
-
-    <div class="harga">
-        Rp 150.000
+    <div class="nav" id="navMenu">
+        <a href="/admin">Dashboard</a>
+        <a href="/adminproduk">Produk</a>
+        <a href="/transaksiadmin">Pesanan</a>
+        <a href="/laporanadmin">Laporan</a>
+        <button onclick="logoutAdmin()">Keluar</button>
     </div>
 
-    <button class="btn">
-        Edit
-    </button>
-
 </div>
-```
-
-</div>
-
-<!-- 4 -->
-
-<div class="card" data-kategori="serum">
-
-```
-<div class="foto">
-    <img src="{{ asset('images/Moisturizer.png') }}">
-</div>
-
-<div class="detail">
-
-    <h3>Moisturizer Glow</h3>
-
-    <div class="harga">
-        Rp 60.000
-    </div>
-
-    <button class="btn">
-        Edit
-    </button>
-
-</div>
-```
-
-</div>
-
-<!-- 5 -->
-
-<div class="card" data-kategori="serum">
-
-```
-<div class="foto">
-    <img src="{{ asset('images/SerumBrightening.png') }}">
-</div>
-
-<div class="detail">
-
-    <h3>Serum Brightening</h3>
-
-    <div class="harga">
-        Rp 75.000
-    </div>
-
-    <button class="btn">
-        Edit
-    </button>
-
-</div>
-```
-
-</div>
-
-<!-- 6 -->
-
-<div class="card" data-kategori="toner">
-
-```
-<div class="foto">
-    <img src="{{ asset('images/Essence.png') }}">
-</div>
-
-<div class="detail">
-
-    <h3>Hydrating Essence</h3>
-
-    <div class="harga">
-        Rp 110.000
-    </div>
-
-    <button class="btn">
-        Edit
-    </button>
-
-</div>
-```
-
-</div>
-
-        <!-- SIDEBAR -->
-        <div class="sidebar">
-
-            <div class="box">
-
-                <h2>Laporan Penjualan</h2>
-
-                <div class="item">
-
-                    <p>Total Penjualan</p>
-
-                    <h3>Rp 16.000.000</h3>
-
-                </div>
-
-                <div class="item">
-
-                    <p>Total Transaksi</p>
-
-                    <h3>4</h3>
-
-                </div>
-
-                <div class="item">
-
-                    <p>Bulanan</p>
-
-                    <h3>Rp 15.000.000</h3>
-
-                </div>
-
+    <h1 class="title">Kelola Produk</h1>
+    <div class="layout">
+        <form class="panel" id="productForm">
+            <h2 id="formTitle">Tambah Produk</h2>
+            <input type="hidden" id="productId">
+            <input type="text" id="nama_produk" placeholder="Nama Produk" required>
+            <input type="number" id="harga" placeholder="Harga" min="0" required>
+            <input type="number" id="stok" placeholder="Stok" min="0" required>
+            <textarea id="deskripsi" placeholder="Deskripsi"></textarea>
+            <input type="file" id="gambar" accept="image/*">
+            <div class="actions">
+                <button class="btn" type="submit">Simpan Produk</button>
+                <button class="btn light" type="button" onclick="resetForm()">Batal</button>
             </div>
-
-            <div class="box">
-
-                <h2>Laporan Bulanan</h2>
-
-                <div class="item">
-
-                    <p>Pendapatan</p>
-
-                    <h3>Rp 10.000.000</h3>
-
-                </div>
-
-                <div class="item">
-
-                    <p>Pesanan</p>
-
-                    <h3>20</h3>
-
-                </div>
-
-            </div>
-
-            <div class="footer">
-                Lihat semua >
-            </div>
-
+        </form>
+        <div class="panel">
+            <h2>Daftar Produk</h2>
+            <input type="text" id="search" placeholder="Cari produk...">
+            <div id="productGrid" class="grid"></div>
         </div>
-
     </div>
-
 </div>
-
 <script>
+const apiUrl = 'http://127.0.0.1:8000/api';
+let products = [];
 
-// SEARCH
-const searchInput = document.querySelector(".search input");
+function toggleMenu(){
+    document.getElementById('navMenu')
+            .classList.toggle('active');
+}
+function headers(json = true){
+    const token = localStorage.getItem('token');
+    if(!token){ window.location.href = '/login'; return null; }
+    const h = {'Accept':'application/json','Authorization':'Bearer '+token};
+    if(json){ h['Content-Type'] = 'application/json'; }
+    return h;
+}
+function rupiah(value){ return 'Rp ' + Number(value || 0).toLocaleString('id-ID'); }
+function image(product){
 
-searchInput.addEventListener("keyup", function(){
+    const gambar = product.gambar_url || product.gambar;
 
-    let keyword = this.value.toLowerCase();
+    if(!gambar){
+        return '/images/LogoN.png';
+    }
 
-    let cards = document.querySelectorAll(".card");
+    const source = String(gambar);
 
-    cards.forEach(card => {
+    if(source.startsWith('http') || source.startsWith('/images/')){
+        return source;
+    }
 
-        let nama = card.querySelector("h3").innerText.toLowerCase();
+    const fileName = source.split('/').filter(Boolean).pop();
 
-        if(nama.includes(keyword)){
-            card.style.display = "block";
-        }else{
-            card.style.display = "none";
-        }
+    return `/images/${fileName}`;
+}
+function logoutAdmin(){ localStorage.removeItem('token'); localStorage.removeItem('role'); localStorage.removeItem('user'); window.location.href='/login'; }
+function loadProducts(){
+    fetch(`${apiUrl}/produk`, {headers:{'Accept':'application/json'}})
+    .then(res => res.json())
+    .then(data => {
 
-    });
+    console.log(data);
 
-});
+    products = Array.isArray(data) ? data : [];
 
-// FILTER
-const buttons = document.querySelectorAll(".kategori button");
-
-buttons.forEach(button => {
-
-    button.addEventListener("click", function(){
-
-        buttons.forEach(btn => {
-            btn.classList.remove("active");
-        });
-
-        this.classList.add("active");
-
-        let kategori = this.dataset.kategori;
-
-        let cards = document.querySelectorAll(".card");
-
-        cards.forEach(card => {
-
-            if(kategori == "semua"){
-                card.style.display = "block";
-            }
-            else if(card.dataset.kategori == kategori){
-                card.style.display = "block";
-            }
-            else{
-                card.style.display = "none";
-            }
-
-        });
-
-    });
+    renderProducts();
 
 });
+}
+function renderProducts(){
+    const keyword = document.getElementById('search').value.toLowerCase();
+    const filtered = products.filter(p => p.nama_produk.toLowerCase().includes(keyword));
 
-// BUTTON EDIT
-const editButtons = document.querySelectorAll(".btn");
+document.getElementById('productGrid').innerHTML = filtered.length ? filtered.map(product => `
+    <div class="card">
 
-editButtons.forEach(button => {
+        <img src="${image(product)}"
+             alt="${product.nama_produk}"
+             onerror="this.onerror=null;this.src='/images/LogoN.png';">
 
-    button.addEventListener("click", function(){
+        <div class="detail">
+            <h3>${product.nama_produk}</h3>
+            <div class="price">${rupiah(product.harga)}</div>
+            <p class="muted">Stok: ${product.stok}</p>
+            <p class="muted">${product.deskripsi || '-'}</p>
 
-        let nama = this.parentElement.querySelector("h3").innerText;
+            <div class="actions">
+                <button class="btn secondary" onclick="editProduct(${product.id})">Edit</button>
+                <button class="btn light" onclick="adjustStock(${product.id}, 1)">+ Stok</button>
+                <button class="btn light" onclick="adjustStock(${product.id}, -1)">- Stok</button>
+                <button class="btn danger" onclick="deleteProduct(${product.id})">Hapus</button>
+            </div>
+        </div>
 
-        alert("Edit produk: " + nama);
-
-    });
-
+    </div>
+`).join('') : '<div class="empty">Produk tidak ditemukan</div>';
+}
+function resetForm(){
+    document.getElementById('productForm').reset();
+    document.getElementById('productId').value = '';
+    document.getElementById('formTitle').innerText = 'Tambah Produk';
+}
+function editProduct(id){
+    const product = products.find(p => Number(p.id) === Number(id));
+    if(!product){ return; }
+    document.getElementById('productId').value = product.id;
+    document.getElementById('nama_produk').value = product.nama_produk;
+    document.getElementById('harga').value = product.harga;
+    document.getElementById('stok').value = product.stok;
+    document.getElementById('deskripsi').value = product.deskripsi || '';
+    document.getElementById('formTitle').innerText = 'Edit Produk';
+}
+function formData(){
+    const data = new FormData();
+    data.append('nama_produk', document.getElementById('nama_produk').value.trim());
+    data.append('harga', document.getElementById('harga').value);
+    data.append('stok', document.getElementById('stok').value);
+    data.append('deskripsi', document.getElementById('deskripsi').value.trim());
+    const file = document.getElementById('gambar').files[0];
+    if(file){ data.append('gambar', file); }
+    return data;
+}
+document.getElementById('productForm').addEventListener('submit', function(event){
+    event.preventDefault();
+    const tokenHeaders = headers(false); if(!tokenHeaders){ return; }
+    const id = document.getElementById('productId').value;
+    const url = id ? `${apiUrl}/produk/${id}/update` : `${apiUrl}/produk`;
+    fetch(url, {method:'POST', headers:tokenHeaders, body:formData()})
+    .then(async res => {
+        const data = await res.json();
+        if(!res.ok){ alert(data.message || 'Produk gagal disimpan'); return null; }
+        return data;
+    })
+    .then(data => { if(data){ alert(data.message); resetForm(); loadProducts(); } });
 });
-
+function adjustStock(id, delta){
+    const product = products.find(p => Number(p.id) === Number(id));
+    if(!product){ return; }
+    const stok = Math.max(0, Number(product.stok) + delta);
+    fetch(`${apiUrl}/produk/${id}`, {method:'PUT', headers:headers(), body:JSON.stringify({stok})})
+    .then(res => res.json())
+    .then(() => loadProducts());
+}
+function deleteProduct(id){
+    if(!confirm('Hapus produk ini?')){ return; }
+    fetch(`${apiUrl}/produk/${id}`, {method:'DELETE', headers:headers()})
+    .then(res => res.json())
+    .then(data => { alert(data.message || 'Produk dihapus'); loadProducts(); });
+}
+document.getElementById('search').addEventListener('input', renderProducts);
+loadProducts();
 </script>
-
 </body>
 </html>
