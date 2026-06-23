@@ -27,6 +27,14 @@ Route::get('/checkout', function () {
     return view('checkout');
 });
 
+Route::get('/payment-qris/{id}', function ($id) {
+    return view('payment-qris', ['id' => $id]);
+});
+
+Route::get('/orders/{id}', function ($id) {
+    return view('order-detail', ['id' => $id]);
+});
+
 // PROFILE
 Route::get('/profile', function () {
     return view('profile');
