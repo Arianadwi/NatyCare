@@ -58,3 +58,7 @@ Route::get('/adminproduk', function () {
 Route::get('/transaksiadmin', function () {
     return view('transaksiadmin');
 });
+
+Route::get('/laporanadmin', function () {
+    return view('laporanadmin');
+});
